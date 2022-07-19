@@ -19,7 +19,7 @@ const getters = {
 
 const actions = {
   [FETCH_HISTORIES](context, params) {
-    return ApiService.query("histories", {
+    return ApiService.query("histories/list", {
       params: params.filters
     })
       .then(({ data }) => {
