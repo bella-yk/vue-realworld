@@ -8,6 +8,10 @@
     <button class="btn btn-outline-danger btn-sm" @click="deleteArticle">
       <i class="ion-trash-a"></i> <span>&nbsp;Delete Article</span>
     </button>
+    <span>&nbsp;&nbsp;</span>
+    <router-link class="btn btn-sm btn-outline-primary" :to="showHistoryLink">
+      <i class="ion-clipboard"></i> <span>&nbsp;Show History</span>
+    </router-link>
   </span>
   <!-- Used in ArticleView when not author -->
   <span v-else>
@@ -48,6 +52,9 @@ export default {
     ...mapGetters(["profile", "isAuthenticated"]),
     editArticleLink() {
       return { name: "article-edit", params: { slug: this.article.slug } };
+    },
+    showHistoryLink() {
+      return { name: "article-history", params: { slug: this.article.slug } };
     },
     toggleFavoriteButtonClasses() {
       return {
